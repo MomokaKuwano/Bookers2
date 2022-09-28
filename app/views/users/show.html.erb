@@ -4,6 +4,9 @@
   <%= image_tag @user.get_profile_image(100,100) %>
   <h3>name <%= @user.name %></h3>
   <h3>introduction</h3>
+  <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
 </div>
 
 <h1>New Book</h1>
@@ -12,15 +15,14 @@
       <%= f.text_field :title %>
     <h4>Opinion</h4>
       <%= f.text_area :body %>
-    
+
     <%= f.submit 'Create Book' %>
   <% end %>
-  
+
 <h1>Books</h1>
 <% @books.each do |book| %>
 <div>
-  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p><%= book.user.name %></p>
+  <%= image_tag book.get_profile_image(100,100)  %>
   <p>Title
   <%= link_to book_path(book.id) do%>
   <%= book.title %></p>
@@ -28,4 +30,3 @@
   <p>Opinion <%= book.body %></p>
 </div>
 <% end %>
-
