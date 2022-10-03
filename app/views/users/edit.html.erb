@@ -1,24 +1,24 @@
 <div class="container">
   <div class ="row">
-    <div class ="col-sm-12 col-md-8 col-ig-5 px-5 px-sm-0 mx-auto"> 
-    <h2>User info</h2>
-    <form enctype="multipart/form-data"  accept-charset="UTF-8" method="post">
-      <%= form_with model: @user do |f| %>
-     <div class="form-group">
-     <label for="inputName">Name</label>
-    <input class="form-control name" type="text" value="momo" name="user[name]" id="user_name">
+    <div class ="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+         <%= form_with model: @user do |f| %>
+          <div>
+           <label for="inputName">Name</label>
+           </div>
+             <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前", :size=>"50"%>
+          <div class ="user_name mt-3">
+           <label for="inputImage">Image</label>
+          </div>
+             <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+          <div class ="user_name mt-3">
+           <label for="inputintroduction">Introduction</label>
+          </div>
+             <%= f.text_area :introduction ,:size=>"50"%>
+          <div class ="user_name mt-3">
+             <%= f.submit "Updete User", class: "btn btn-secondary" %>
+          </div>
+             <% end %>
+       </div>
     </div>
-    <div class="form-group">
-     <label for="inputImage">Image</label>
-     <input class="form-control-file user_image" accept="image/*" type="file" name="user[profile_image]" id="user_profile_image">     
-     </div>
-     <div class="form-group">
-     <label for="inputintroduction">Introduction</label>
-     <textarea class="form-control introduction" name="user[introduction]" id="user_introduction"></textarea>
-     <%= f.submit "Updete User", class: "btn btn-secondary"%>
-    </div>
-   <% end %>
-   </form>
-   </div>
-  </div>
 </div>

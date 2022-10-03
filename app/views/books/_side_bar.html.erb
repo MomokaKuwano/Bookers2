@@ -1,38 +1,36 @@
-
-    <h2>User info</h2>
-
+      <h2>User info</h2>
       <%= image_tag user.get_profile_image(100,100) %>
         <table class= "table">
-         <tbody>
-          <tr></tr>
-           <tr>
-            <th>name</th>
-            <th><%= user.name %></th>
-           </tr>
-           <tr>
-            <th>introduction</th>
-           </tr>
-          <tr></tr>
-         </tbody>
-        </table>
-        <div class="row">
-       　 <%= link_to  edit_user_path(user), class: "btn btn-primary btn-light", method: :get do %>
-       　 <i class="fa-solid fa-user-gear"></i>
-       　 <% end %>
-        </div>
-       　 </button>
-       
+        　 <tbody>
+         　　 <tr></tr>
+          　　 <tr>
+          　　　  <th>name</th>
+          　　　  <th><%= user.name %></th>
+         　　  </tr>
+         　　  <tr>
+          　　　  <th>introduction</th>
+          　　　  <th><%= user.introduction %></th>
+         　　  </tr>
+        　　  <tr></tr>
+      　　   </tbody>
+      　　  </table>
+      　　  <div class="btn">
+      　　 　 <%= link_to "プロフ編集", edit_user_path(user), class: "btn btn-outline-secondary" %>
+      　　  </div>
+
+
         <h2 class="mt-3">New Book</h2>
           <%= form_with model: book do |f| %>
-            <div>
-             <label for="book_title">Title</label>
-             </div>
+           <div>
+           <label for="book_title">Title</label>
+           </div>
              <%= f.text_field :title%>
-             <div>
-             <label for="book_opinion">Opinion</label>
-             </div>
+           <div class ="title mt-3">
+           <label for="book_opinion">Opinion</label>
+           </div>
              <%= f.text_area :body %>
-             <%= f.submit 'Create Book' %>
+             <div class ="subnit mt-3">
+             <%= f.submit 'Create Book', class: "btn btn-success"  %>
+             </div>
           <% end %>
-        
-       </div>
+      </div>

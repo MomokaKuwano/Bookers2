@@ -1,0 +1,21 @@
+<div class="container">
+  <div class ="row">
+    <div class ="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>Editing Book</h2>
+         <%= form_with model: @book do |f| %>
+          <div>
+           <label for="edittitle">Title</label>
+           </div>
+             <%= f.text_field :title, autofocus: true, :size=>"50"%>
+
+          <div class ="editopinion mt-3">
+           <label for="editopinion">Opinion</label>
+          </div>
+             <%= f.text_area :opinion ,:size=>"50"%>
+          <div class ="button mt-3">
+             <%= f.submit "Updete Book", class: "btn btn-success" %>
+          </div>
+             <% end %>
+       </div>
+    </div>
+</div>
