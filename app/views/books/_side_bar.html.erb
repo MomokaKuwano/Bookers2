@@ -1,4 +1,4 @@
-      <h2>User info</h2>
+   <h2>User info</h2>
       <%= image_tag user.get_profile_image(100,100) %>
         <table class= "table">
         　 <tbody>
@@ -14,12 +14,14 @@
       　　   </tbody>
       　　  </table>
       　　<div class ="row">
-      　　　  <%= link_to "プロフ編集", edit_user_path(user), class: "btn btn-block btn-outline-secondary" %>
+      　　　  <%= link_to edit_user_path(user), class: "btn btn-block btn-outline-secondary" do %>
+      　　　  <i class="fa-solid fa-user-gear"></i>
+      　　  　<% end %>
           </div>
 
 
         <h2 class="mt-3">New Book</h2>
-          <%= form_with (model: book, local: true) do |f| %>
+          <%= form_with(model: book, local: true) do |f| %>
               <div>
                <label for="book_title">Title</label>
               </div>
